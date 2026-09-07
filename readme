@@ -1,2 +1,25 @@
-projeto inicial de um RAG feito em pythom
-estrutura inicial:
+projeto inicial de um RAG sobre uma biblioteca feito em pythom usando langchain
+
+
+
+Estrutura inicial:
+
+Base: 
+
+Contém a base de conhecimento em pdf.
+
+db:
+
+Contém a base de dados vetorizada que usaremos.
+
+database.py: 
+
+Script que extrai o conteúdo da base de conhecimento e  cria um banco de dados vetorizado usando HuggingFaceEmbeddings salvando ele na pasta db.
+
+main.py: 
+
+Script que comparara a pergunta com a base de dados usando  HuggingFaceEmbeddings para comparar as chunks e usando langchain_google_genai para gerar a resposta final.
+
+
+Bibliotecas necessárias :
+pip install langchain-community langchain-text-splitters langchain-chroma langchain-huggingface langchain-google-genai python-dotenv pypdf

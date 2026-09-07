@@ -21,7 +21,7 @@ def carregar_doc():
     return documentos
 
 def dividir_chunk(documentos):
-    separador = RecursiveCharacterTextSplitter(chunk_size=1200,#tamanho da  chunk em caracteres 
+    separador = RecursiveCharacterTextSplitter(chunk_size=700,#tamanho da  chunk em caracteres 
                                              chunk_overlap=125,#quanto que a chunk vai recuar no inicio
                                              length_function=len,#define o tomanho com a função base do python 
                                              add_start_index=True#verifica onde a chunk inicia 
@@ -30,7 +30,7 @@ def dividir_chunk(documentos):
     return chunks 
 
 def vetorizar_chunk(chunks):
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")# modelo local vetorizado 
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")# modelo local vetorizado 
     db = Chroma.from_documents(chunks, embeddings, persist_directory="db")#cria o banco de dados 
     print("Banco de dados criado com sucesso!")
 
