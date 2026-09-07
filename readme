@@ -1,8 +1,10 @@
-projeto inicial de um RAG sobre uma biblioteca feito em pythom usando langchain
+Projeto de um chatbot desenvolvido em Python utilizando o framework LangChain e a arquitetura RAG (Retrieval-Augmented Generation). O sistema funciona como um assistente virtual inteligente, capaz de consultar bases de dados de textos e fornecer informações úteis e precisas sobre o funcionamento e os serviços de uma biblioteca.
 
+Guia:
 
+Instale as bibliotecas e execute o main.py. Caso você queira reutilizar para outras base de conhecimento apague a pasta db e rode o databse.py, lembrando que talve seja necessário alterar os parâmetros de vetorização de acordo com o tamanho das perguntas e respostas da base de dados. 
 
-Estrutura inicial:
+Estrutura inicial: 
 
 Base: 
 
