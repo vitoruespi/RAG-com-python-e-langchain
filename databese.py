@@ -1,9 +1,8 @@
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
 
-
+from langchain_huggingface import HuggingFaceEmbeddings
 
 folder= 'Base'
 
@@ -31,4 +30,8 @@ def dividir_chunk(documentos):
     return chunks 
 
 def vetorizar_chunk(chunks):
-    pass
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")# modelo local vetorizado 
+    db = Chroma.from_documents(chunks, embeddings, persist_directory="db")#cria o banco de dados 
+    print("Banco de dados criado com sucesso!")
+
+criar_db()
