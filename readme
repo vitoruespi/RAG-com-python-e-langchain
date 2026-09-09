@@ -2,26 +2,23 @@ Projeto de um chatbot desenvolvido em Python utilizando o framework LangChain e 
 
 Guia:
 
-Instale as bibliotecas e execute o main.py. Caso você queira reutilizar para outras base de conhecimento apague a pasta db e rode o databse.py, lembrando que talve seja necessário alterar os parâmetros de vetorização de acordo com o tamanho das perguntas e respostas da base de dados. 
+Instale as bibliotecas e execute o main.py. Caso você queira reutilizar para outras bases de conhecimento, apague a pasta db e rode o database.py, lembrando que talvez seja necessário alterar os parâmetros de vetorização de acordo com o tamanho das perguntas e respostas da base de dados. Além disso, é preciso criar um arquivo .env onde você deve colocar uma chave de API disponibilizada pelo Gemini.
 
-Estrutura inicial: 
+Obs: para uma melhor execução do código, é necessário além disso pegar uma chave de API do Hugging Face.
 
-Base: 
+Estrutura inicial:
 
-Contém a base de conhecimento em pdf.
+Base:
+Contém a base de conhecimento em PDF.
 
 db:
-
 Contém a base de dados vetorizada que usaremos.
 
-database.py: 
+database.py:
+Script que extrai o conteúdo da base de conhecimento e cria um banco de dados vetorizado usando HuggingFaceEmbeddings, salvando ele na pasta db.
 
-Script que extrai o conteúdo da base de conhecimento e  cria um banco de dados vetorizado usando HuggingFaceEmbeddings salvando ele na pasta db.
+main.py:
+Script que compara a pergunta com a base de dados usando HuggingFaceEmbeddings para comparar as chunks, e usando langchain_google_genai para gerar a resposta final.
 
-main.py: 
-
-Script que comparara a pergunta com a base de dados usando  HuggingFaceEmbeddings para comparar as chunks e usando langchain_google_genai para gerar a resposta final.
-
-
-Bibliotecas necessárias :
+Bibliotecas necessárias:
 pip install langchain-community langchain-text-splitters langchain-chroma langchain-huggingface langchain-google-genai python-dotenv pypdf
