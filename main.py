@@ -24,6 +24,7 @@ Responda a pergunta do ususário:
 {pergunta}
 com base nessa informações: 
 {base_conhecimento}
+Caso Não possua nenhuma correspondência no texto que voce recebeu  diga que não encontrou, mas você pode usar oq recebeu para melhorar a resposta por exemplo não temos isso mas possuimos tal coisa com base na{base_conhecimento} 
 """
 
 
@@ -65,7 +66,10 @@ def pergunta():
     cadeia = modelo | StrOutputParser()
     texto_resposta = cadeia.invoke(prompt)
     print(f"Texto da resposta {texto_resposta}")
-
-pergunta()
-""" 
-   """
+while (True):
+    pergunta()
+    b = input("Deseja Continuar? digite 1 para sim e 0 para não\n ")
+    if (b=="0"):
+        print("Programa encerrado")
+        break
+   
